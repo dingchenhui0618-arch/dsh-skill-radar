@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# credentials and machine-local state
+.env
+.env.*
+*.pem
+*.key
+.credentials*
+
+# local output
+*.log
+*.tgz
+coverage/
+tmp/
+.verify/
+_screenshot-*.png
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# note: lib/ is intentionally committed. It is the shipped artifact that makes
+# `dsh plugin add github:...` work without a build step or install scripts.

@@ -1,0 +1,61 @@
+{
+  "name": "dsh-skill-radar",
+  "version": "0.1.0",
+  "engines": { "dsh": ">=0.2.0-rc.2 <0.3.0" },
+  "description": "Skill usage radar for DeepSeek Harness: records every skill hit with time, session and trigger, ranks skills by the last 7 days, and suggests archiving the ones that never fire.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "docs",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs && node --test",
+    "prepack": "node scripts/build.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-layout"
+      ],
+      "platform": "web"
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "skills",
+    "skill-management",
+    "usage",
+    "local-first"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dingchenhui0618-arch/dsh-skill-radar.git"
+  },
+  "homepage": "https://github.com/dingchenhui0618-arch/dsh-skill-radar#readme",
+  "bugs": {
+    "url": "https://github.com/dingchenhui0618-arch/dsh-skill-radar/issues"
+  },
+  "license": "MIT"
+}
